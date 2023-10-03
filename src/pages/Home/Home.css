@@ -1,0 +1,20 @@
+
+.container {
+ background-color: #EE82EE	; 
+ width: 600px; 
+ height: 200px;
+ margin: 0 auto;
+}
+.title {
+    color: #FFF5EE;
+    font-size: 60px;
+    text-align: center;
+
+}
+
+.imagePhonebook {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

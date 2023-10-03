@@ -1,0 +1,25 @@
+/* styles.css */
+
+.nav-links-container {
+    display: flex;
+    justify-content: center; /* Выравнивание по горизонтали */
+    align-items: center; /* Выравнивание по вертикали (если несколько строк ссылок) */
+/* Высота контейнера на весь видимый экран (можно настроить по вашему желанию) */
+  }
+
+
+.link {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #333; /* Цвет текста ссылок */
+    margin: 0 20px; /* Отступы между ссылками */
+    font-size: 18px; /* Размер шрифта */
+    padding: 8px 12px; /* Поля вокруг текста ссылок */
+    border-radius: 5px; /* Закругленные углы */
+    background-color: #f0f0f0; /* Цвет фона */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
+  }
+  
+  .nav-link:hover {
+    background-color: #ddd; /* Цвет фона при наведении */
+  }
+  

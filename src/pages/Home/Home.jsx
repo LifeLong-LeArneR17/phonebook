@@ -1,11 +1,11 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
-
+import "./Home.css"
  const Home = () => {
     return (
-     <nav>
-        <p>Welcome to your personal phonebook!</p>
-     </nav>
+    <div className="container">
+           <p className="title">Welcome to your personal phonebook!</p>
+           <img className="imagePhonebook" src="https://cdn-icons-png.flaticon.com/512/3455/3455271.png" alt="phonebook"/>
+    </div>
     );
   };
   export default Home;

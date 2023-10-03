@@ -1,8 +1,17 @@
+import SignInPageForm from "components/SignInForm";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { loginRequest } from "redux/userSlice/userCreateAsyncThunk";
+ function  SignInPage  ()  {
+  const dispatch = useDispatch()
+ const handleLogin = (formData) => {
+   dispatch(loginRequest(formData))
+ }
 
- const LoginPage = () => {
     return (
-     <p>fsfs</p>
-    );
+      <>
+     <SignInPageForm onSubmit={handleLogin} isLoginForm={false} />
+    </>
+  );
   };
-  export default LoginPage;
+  export default SignInPage;
