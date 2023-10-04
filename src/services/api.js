@@ -48,6 +48,7 @@ export const UserAPI = {
   },
   async logOut() {
     const { data } = await $privateHost.post(`/users/logout`);
+    console.log(data)
     return data;
   },
 };

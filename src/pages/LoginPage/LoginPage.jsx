@@ -1,17 +1,29 @@
-import SignInPageForm from "components/SignInForm";
-import React from "react";
-import { useDispatch } from "react-redux";
-import { loginRequest } from "redux/userSlice/userCreateAsyncThunk";
- function  SignInPage  ()  {
-  const dispatch = useDispatch()
- const handleLogin = (formData) => {
-   dispatch(loginRequest(formData))
- }
+import SignInPageForm from 'components/SignInForm';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { loginRequest } from 'redux/userSlice/userCreateAsyncThunk';
+import { useEffect } from 'react';
+import { selectIsLoggedIn } from 'redux/userSlice/selector';
+function SignInPage() {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn)
+  const navigate = useNavigate()
+  const handleLogin = formData => {
+    dispatch(loginRequest(formData));
+  };
+ 
+  useEffect(() => {
+    if (!isLoggedIn) return;
+    navigate('/');
+  }, [isLoggedIn, navigate]);
 
-    return (
-      <>
-     <SignInPageForm onSubmit={handleLogin} isLoginForm={false} />
+
+
+  return (
+    <>
+      <SignInPageForm onSubmit={handleLogin} isLoginForm={false} />
     </>
   );
-  };
-  export default SignInPage;
+}
+export default SignInPage;

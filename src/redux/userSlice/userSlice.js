@@ -1,5 +1,5 @@
 import { createSlice} from "@reduxjs/toolkit";
-import { loginRequest, registerRequest } from "./userCreateAsyncThunk";
+import { loginRequest, registerRequest, logOutRequest } from "./userCreateAsyncThunk";
 const initialState = {
     userData: {
       name: null,
@@ -11,8 +11,14 @@ const initialState = {
 }
 
 const userSlice = createSlice({
+      // Ім'я слайсу
+
     name: "user",
+      // Початковий стан редюсера слайсу
+
     initialState: initialState,
+      // Об'єкт редюсерів
+
     reducers: {
 
     },
@@ -44,6 +50,14 @@ const userSlice = createSlice({
     // GET current user
 
     // Logout
+    .addCase(logOutRequest.pending, pendingHadler)
+    .addCase(logOutRequest.fulfilled, (state) => {
+        state.status = "resolved";
+        state.isLoggedIn = false;
+        state.userData.name = null;
+        state.userData.email = null;
+    })
+    .addCase(logOutRequest.rejected, rejectHandler)
 })
 
 function pendingHadler(state ) {
@@ -56,5 +70,7 @@ function rejectHandler(state, action) {
     state.status = "rejected"
 
 }
-
+// Генератори екшенів(інструкцій)
+// export const {} = postsSlice.actions;
+// Експортуємо налаштований редюсер слайсу
 export const userReducer = userSlice.reducer;

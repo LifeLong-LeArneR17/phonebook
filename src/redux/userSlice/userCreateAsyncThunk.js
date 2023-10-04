@@ -28,3 +28,18 @@ export const registerRequest = createAsyncThunk(
         }
       }
     );
+
+
+
+    export const logOutRequest = createAsyncThunk(
+      'user/logOut',
+      async(_, { rejectWithValue }) => {
+        try {
+          const response = await UserAPI.logOut();
+          localStorage.removeItem('token');
+          return response;
+        } catch (error) {
+          return rejectWithValue(error.message);
+        }
+      }
+    );
