@@ -14,7 +14,8 @@ function SignUpPage() {
     
     useEffect(()=> {
      if(!isLoggedIn) return
-     navigate('/')
+     navigate('/contacts')
+     console.log(isLoggedIn)
     }, [isLoggedIn , navigate])
     
     const handleRegister = formData => {

@@ -21,7 +21,6 @@ export const registerRequest = createAsyncThunk(
         try {
           const response = await UserAPI.login(formData);
           localStorage.setItem('token', response.token);
-          console.log(response)
           return response;
         } catch (error) {
           return rejectWithValue(error.message);

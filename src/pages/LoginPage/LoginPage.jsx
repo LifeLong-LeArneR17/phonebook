@@ -15,7 +15,7 @@ function SignInPage() {
  
   useEffect(() => {
     if (!isLoggedIn) return;
-    navigate('/');
+    navigate('/contacts');
   }, [isLoggedIn, navigate]);
 
 
