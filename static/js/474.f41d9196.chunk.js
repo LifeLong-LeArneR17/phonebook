@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[474],{474:function(e,o,n){n.r(o),n.d(o,{default:function(){return c}});n(791);var t=n(184),c=function(){return(0,t.jsxs)("div",{className:"container",children:[(0,t.jsx)("p",{className:"title",children:"Welcome to your personal phonebook!"}),(0,t.jsx)("img",{className:"imagePhonebook",src:"https://cdn-icons-png.flaticon.com/512/3455/3455271.png",alt:"phonebook"})]})}}}]);
+//# sourceMappingURL=474.f41d9196.chunk.js.map
