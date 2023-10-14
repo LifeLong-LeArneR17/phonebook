@@ -9,7 +9,6 @@ import { selectIsLoggedIn, selectUserData } from 'redux/userSlice/selector';
 import { getCurrentUserRequest, logOutRequest } from 'redux/userSlice/userCreateAsyncThunk';
 import ContactsPage from 'pages/ContactsPage/ContactsPage';
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
 import Loader from './Loader';
 export const App = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
