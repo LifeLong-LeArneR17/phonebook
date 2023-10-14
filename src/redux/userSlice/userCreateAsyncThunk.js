@@ -9,6 +9,10 @@ export const registerRequest = createAsyncThunk(
         localStorage.setItem('token', response.token);
         return response;
       } catch (error) {
+        if (error.response && error.response.status === 400) {
+          // Если статус 400 (конфликт), это означает, что пользователь уже существует
+          return rejectWithValue("User already exists");
+        }
         return rejectWithValue(error.message);
       }
     }
@@ -36,6 +40,20 @@ export const registerRequest = createAsyncThunk(
         try {
           const response = await UserAPI.logOut();
           localStorage.removeItem('token');
+          return response;
+        } catch (error) {
+          return rejectWithValue(error.message);
+        }
+      }
+    );
+
+
+
+    export const getCurrentUserRequest = createAsyncThunk(
+      'user/getCurrent',
+      async(_, { rejectWithValue }) => {
+        try {
+          const response = await UserAPI.getUserDetails();
           return response;
         } catch (error) {
           return rejectWithValue(error.message);

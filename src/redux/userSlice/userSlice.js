@@ -1,5 +1,5 @@
 import { createSlice} from "@reduxjs/toolkit";
-import { loginRequest, registerRequest, logOutRequest } from "./userCreateAsyncThunk";
+import { loginRequest, registerRequest, logOutRequest, getCurrentUserRequest} from "./userCreateAsyncThunk";
 const initialState = {
     userData: {
       name: null,
@@ -48,6 +48,17 @@ const userSlice = createSlice({
 
 
     // GET current user
+    .addCase(getCurrentUserRequest.pending, pendingHadler)
+    .addCase(getCurrentUserRequest.fulfilled, (state, action) => {
+        state.status = "resolved";
+        state.isLoggedIn = true;
+        state.userData.name = action.payload.name;
+        state.userData.email = action.payload.email;
+    })
+    .addCase(getCurrentUserRequest.rejected, rejectHandler)
+
+
+
 
     // Logout
     .addCase(logOutRequest.pending, pendingHadler)

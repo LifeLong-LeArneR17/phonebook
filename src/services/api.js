@@ -59,6 +59,7 @@ export const ContactsAPI = {
   },
   async addContact(contactData) {
     const { data } = await $privateHost.post(`/contacts`, contactData);
+
     return data;
   },
   async deleteContact(contactId) {
